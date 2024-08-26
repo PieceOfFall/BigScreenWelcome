@@ -1,9 +1,11 @@
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
+import Axios from 'axios';
 
 /** 文字展示方法封装 */
 const showDuration = 10 * 1000;
 const showText = ref("")
+let TextArr: Array<string> = []
 const isErasingIn = ref(false);
 
 const delay = (time: number) => new Promise(resolve => setTimeout(resolve, time))
@@ -17,14 +19,19 @@ const changeText = async (newText: string, showTime: number) => {
 }
 
 /** 控制逻辑 */
+const getText = async () => await Axios.get(`http://${import.meta.env.VITE_GET_URL}/get`);
+
 onMounted(async () => {
+
+
   // eslint-disable-next-line no-constant-condition
   while (true) {
-    await changeText("开发出老百姓用得起的高质量生物药", showDuration)
-    await changeText("始于信，达于行", showDuration)
-    await changeText("成为国际一流的生物制药公司", showDuration)
-    await changeText("以创新为基石，走全球化道路", showDuration)
-    await changeText("诚信、会学、肯干、协作", showDuration)
+    const ret = await getText();
+    TextArr = ret.data.data as Array<string>;
+    for (let index = 0; index < TextArr.length; index++) {
+      const element = TextArr[index];
+      await changeText(element, showDuration)
+    }
   }
 })
 
