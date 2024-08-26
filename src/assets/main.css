@@ -1,0 +1,14 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#app {
+  height: 100vh;
+  background-color: black;
+}
+
+@font-face {
+  font-family: 'SourceHanSansCN';
+  src: url('./fonts/SourceHanSansCN-Medium.otf');
+}
