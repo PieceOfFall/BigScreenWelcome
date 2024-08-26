@@ -47,7 +47,7 @@ onMounted(async () => {
 
   position: absolute;
   top: 70px;
-  right: 450cqb;
+  right: 450px;
 
   .box {
     overflow: hidden;
