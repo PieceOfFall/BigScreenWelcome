@@ -19,14 +19,10 @@ const changeText = async (newText: string, showTime: number) => {
 }
 
 /** 控制逻辑 */
-const getText = async () => await Axios.get(`http://${import.meta.env.VITE_GET_URL}/get`);
-
 onMounted(async () => {
-
-
   // eslint-disable-next-line no-constant-condition
   while (true) {
-    const ret = await getText();
+    const ret = await Axios.get(`http://${import.meta.env.VITE_GET_URL}/get`);
     TextArr = ret.data.data as Array<string>;
     for (let index = 0; index < TextArr.length; index++) {
       const element = TextArr[index];
