@@ -9,20 +9,22 @@ const isErasingIn = ref(false);
 const delay = (time: number) => new Promise(resolve => setTimeout(resolve, time))
 
 const changeText = async (newText: string, showTime: number) => {
-  isErasingIn.value = false;
-  await delay(1000);
   showText.value = newText;
   isErasingIn.value = true;
   await delay(showTime);
+  isErasingIn.value = false;
+  await delay(1000);
 }
 
 /** 控制逻辑 */
 onMounted(async () => {
   // eslint-disable-next-line no-constant-condition
   while (true) {
-    await changeText("豫章故郡，洪都新府。星分翼轸，地接衡庐。", showDuration)
-    await changeText("襟三江而带五湖,控蛮荆而引瓯越。物华天宝,龙光射牛斗之墟。", showDuration)
-    await changeText("人杰地灵，徐孺下陈蕃之榻。雄州雾列，俊采星驰。", showDuration)
+    await changeText("开发出老百姓用得起的高质量生物药", showDuration)
+    await changeText("始于信，达于行", showDuration)
+    await changeText("成为国际一流的生物制药公司", showDuration)
+    await changeText("以创新为基石，走全球化道路", showDuration)
+    await changeText("诚信、会学、肯干、协作", showDuration)
   }
 })
 
@@ -71,7 +73,6 @@ onMounted(async () => {
       width: 100%;
     }
   }
-
 
 }
 </style>
