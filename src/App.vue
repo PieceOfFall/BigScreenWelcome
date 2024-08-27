@@ -26,6 +26,7 @@ onMounted(async () => {
     TextArr = ret.data.data as Array<string>;
     for (let index = 0; index < TextArr.length; index++) {
       const element = TextArr[index];
+      
       await changeText(element, showDuration)
     }
   }
@@ -52,13 +53,22 @@ onMounted(async () => {
 
   position: absolute;
   top: 15px;
-  right: 550px;
-
+  right: 0px;
+  width: 1000px;
+  transform: translate(-45%, 0%);
+  overflow: hidden;
+  display: flex;
+  justify-content: center; /* 水平居中 */
+  
   .box {
     overflow: hidden;
+    text-align: center;
+    
   }
 
   .text {
+
+    overflow: hidden;
     white-space: nowrap;
   }
 
