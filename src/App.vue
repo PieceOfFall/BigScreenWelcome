@@ -51,8 +51,8 @@ onMounted(async () => {
   letter-spacing: 3px;
 
   position: absolute;
-  top: 70px;
-  right: 450px;
+  top: 15px;
+  right: 550px;
 
   .box {
     overflow: hidden;
